@@ -1,0 +1,122 @@
+@import 'tailwindcss';
+
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/700.css';
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/500.css';
+
+:root {
+  --bg-base: #0a0a0b;
+  --bg-surface: #131316;
+  --bg-elevated: #1c1c22;
+
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-strong: rgba(255, 255, 255, 0.12);
+
+  --text-primary: #fafafa;
+  --text-secondary: #a1a1aa;
+  --text-muted: #52525b;
+
+  --accent-primary: #f39200;
+  --accent-glow: rgba(243, 146, 0, 0.2);
+
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+
+  color-scheme: dark;
+  font-family: var(--font-sans);
+  font-feature-settings: 'cv11', 'ss01';
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@theme inline {
+  --color-bg-base: var(--bg-base);
+  --color-bg-surface: var(--bg-surface);
+  --color-bg-elevated: var(--bg-elevated);
+
+  --color-border-subtle: var(--border-subtle);
+  --color-border-strong: var(--border-strong);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+
+  --color-accent: var(--accent-primary);
+  --color-accent-glow: var(--accent-glow);
+
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+html,
+body,
+#root {
+  min-height: 100svh;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-base);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+@utility glass {
+  background-color: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--border-subtle);
+}
+
+@utility glow-orange {
+  box-shadow:
+    0 0 0 1px rgba(243, 146, 0, 0.2),
+    0 0 40px rgba(243, 146, 0, 0.25),
+    0 0 80px rgba(243, 146, 0, 0.1);
+}
+
+@utility glow-orange-sm {
+  box-shadow: 0 0 24px rgba(243, 146, 0, 0.3);
+}
+
+@utility shimmer-orange {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(243, 146, 0, 0.6) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.8s linear infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
