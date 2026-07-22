@@ -123,6 +123,15 @@ netlify deploy --prod            # prod
 netlify deploy                   # preview URL (recommandé pour QA)
 ```
 
+### CI/CD
+
+Le site est connecté au repo GitHub (`Manon-pinto/hercule-vs-chacale`) — Netlify build & déploie automatiquement :
+
+- **Push sur `main`** → build (`npm run build`) + déploiement en production
+- **Ouverture d'une Pull Request** → deploy preview avec URL unique pour QA avant merge
+
+Rien à faire manuellement : plus besoin de `netlify deploy --prod`, un `git push` suffit.
+
 ---
 
 ## Troubleshooting
@@ -170,5 +179,3 @@ screenshots/                     # Captures de référence des 3 états
 
 - **Retour HTML dans la réponse** : le workflow n8n retourne `report_html` dans le payload JSON — `ResultView` affiche alors le rapport dans une iframe.
 - **Bouton "Télécharger le rapport"** : une fois le HTML disponible, ajouter un export PDF client-side.
-# hercule-vs-chacale
-# hercule-vs-chacale
